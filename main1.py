@@ -1,21 +1,24 @@
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
-import os
+from cfg import Config
 
 load_dotenv()
 
+llm = ChatGroq(
+    model=Config.MODEL_NAME,      
+    temperature=Config.TEMPERATURE, 
+    api_key=Config.API_KEY     
+)
+    
+
 def generate_pet_name():
-    llm = ChatGroq(
-        model="llama3-8b",
-        temperature=0.7,
-        api_key=os.getenv("GROQ_API_KEY")
-    )
 
     response = llm.invoke(
         "У меня домашняя собака и я хочу крутые имена для неё. Составь пять крутых имён."
     )
 
     return response
+
 
 if __name__ == "__main__":
     print(generate_pet_name())
