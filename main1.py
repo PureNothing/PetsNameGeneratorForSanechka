@@ -3,6 +3,13 @@ from cfg import Config
 
 
 print(Config.API_KEY)  # Проверка, что ключ загружен правильно
+print("=== ДИАГНОСТИКА ===")
+print("Ключ из Config:", Config.API_KEY)
+print("Длина ключа:", len(Config.API_KEY) if Config.API_KEY else "None")
+print("Тип ключа:", type(Config.API_KEY))
+print("===================")
+
+
 
 llm = ChatGroq(
     model=Config.MODEL_NAME,      
