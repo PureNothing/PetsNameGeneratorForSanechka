@@ -1,8 +1,8 @@
 from langchain_groq import ChatGroq
-from dotenv import load_dotenv
 from cfg import Config
 
-load_dotenv()
+
+print(Config.API_KEY)  # Проверка, что ключ загружен правильно
 
 llm = ChatGroq(
     model=Config.MODEL_NAME,      
